@@ -32,4 +32,5 @@ int main(void)
 		b = fib;
 		n++;
 	}
+	return (0);
 }
