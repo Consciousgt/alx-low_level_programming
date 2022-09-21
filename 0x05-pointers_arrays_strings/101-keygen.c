@@ -1,35 +1,38 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
 /**
- * _atoi - convert a string to an integer
+ * main - crack code
  *
- * @s: the string to use
+ * Description: cracking the hacker code
  *
- * Return: integer
+ * Return: returns 0 if no error
  *
  */
-int _atoi(char *s)
+int main(void)
 {
-	int counter = 0;
-	int i = 0;
-	unsigned int result = 0;
-	int sign = 0;
+	int ascii = 2772, i = 0, j, random;
+	char password[100];
+	time_t t;
 
-	while (s[counter] != '\0')
+	srand((int) time(&t));
+	while (ascii > 126)
 	{
-		if (s[counter] == '-')
-			sign++;
-		if (s[counter] >= 48 && s[counter] <= 57)
-		{
-			i++;
-			result = result * 10 + s[counter] - '0';
-		}
-		if (i > 0 && (s[counter] < 48 || s[counter] > 57))
-			break;
-		counter++;
+		random = rand() % 126;
+		password[i] = random;
+		ascii -= random;
+		i++;
 	}
-	if (i == 0)
-		return (0);
-	if (sign % 2 == 0)
-		return (result);
-	return (result * -1);
+	if (ascii > 0)
+		password[i] = ascii;
+	else
+	{
+		i--;
+	}
+	for (j = 0; j <= i; j++)
+	{
+		printf("%c", password[j]);
+	}
+	return (0);
 }
