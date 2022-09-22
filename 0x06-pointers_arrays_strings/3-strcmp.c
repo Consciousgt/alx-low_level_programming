@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _strcmp - compares two strings
+ * _strcmp - compares rel betw two strings
  *
  * @str1: A pointer to a character that will be changed
  *
